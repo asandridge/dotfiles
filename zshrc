@@ -30,12 +30,12 @@ zle -N zle-keymap-select
 export KEYTIMEOUT=1
 
 # ZSH aliases
-alias rc="vim ~/.zshrc && zs"
-alias zs="echo 'sourcing zshrc...' && source ~/.zshrc"
+alias zshrc="vim ~/.zshrc && srczsh"
+alias srczsh="echo 'sourcing zshrc...' && source ~/.zshrc"
 
 # Git aliases
 alias amend='~/repositories/bin/amendAndPush'
-alias pushAll='~/repositories/bin/commitAndPushAll'
+alias pushall='~/repositories/bin/commitAndPushAll'
 alias stash='git reset HEAD^ --soft && git stash'
 alias apply='git stash apply'
 alias hard='git reset HEAD --hard'
@@ -67,10 +67,12 @@ alias fb="npm run clean && npx wdio config/wdio.browserstack.beacon.firefox.conf
 
 # Other work aliases
 alias cpc3="cd ~/repositories/cpc3po"
-alias dumpJan="cpc3 && master && ./bin/dump.sh -h db.jan.lod -u liquibase -pmigr@tions"
-alias sm3="cd ~/repositories/spotmarket/automation/test/python"
-alias sma="cd ~/repositories/spotmarket-automation/test/python"
-alias setupDevContainer="cd ~/repositories/spotmarket && make docker-down && make docker-up && make-docker-test-env && make bash"
+alias dumpjan="cpc3 && master && ./bin/dump.sh -h db.jan.lod -u liquibase -pmigr@tions"
+alias sm3="cd ~/repositories/spotmarket/automation"
+alias sma="cd ~/repositories/spotmarket-automation"
+alias rsct="cd ~/repositories/spotmarket && make docker-down && make docker-up && make docker-test-env"
+alias deployoc="cpc3 && cd gds-change-tool && master && make run && make oc-login && make bring-up-full-stack release=alex-test && make gds-change-prep && make forward-cpc3po release=alex-test"
+alias dumplocal="./bin/dump.sh -h 127.0.0.1 -u liquibase -p migr@tions -n host -P 3307"
 
 # Other useful aliases
 alias c='clear'
@@ -78,13 +80,14 @@ alias bp='vim ~/.bash_profile && sbp'
 alias sbp='source ~/.bash_profile'
 alias repos="cd ~/repositories"
 alias projects="cd ~/Documents/Projects"
-alias gpm="git add . && git commit && git push origin HEAD"
+alias gph="git add . && git commit && git push origin HEAD"
 alias brave="open -a 'Brave Browser'"
+alias copyrc="cp ~/.vimrc vimrc && cp ~/.zshrc zshrc"
 
 # Vim aliases
 alias vimrc="vim ~/.vimrc"
-alias vimPlug="vim +PluginInstall +qall"
-alias vimBund="vim +BundleInstall +qall"
+alias vimplug="vim +PluginInstall +qall"
+alias vimbund="vim +BundleInstall +qall"
 alias vgolf="cd Documents/vimgolf"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load

@@ -2,7 +2,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " You better be using iTerm2
-colorscheme solarized8_dark
+colorscheme gruvbox
 
 " Vundle stuff yo
 " set the runtime path to include Vundle and initialize
@@ -11,19 +11,22 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'preservim/nerdtree'
-Bundle 'takac/vim-hardtime'
+Plugin 'ctrlp.vim.git'
+Plugin 'rking/ag.vim.git'
 Plugin 'tpope/vim-surround'
 Plugin 'itchyny/lightline.vim'
 Plugin '907th/vim-auto-save'
 Plugin 'ap/vim-buftabline'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'maralla/completor.vim'
+Plugin 'zivyangll/git-blame.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 syntax on
-let mapleader = ","
+let mapleader = " "
 set tabstop=4 " number of visual spaces per TAB
 set softtabstop=4 " number of spaces in tab when editing
 set shiftwidth=4 " >> is four spaces
@@ -41,6 +44,10 @@ set ic " ignore case when searching
 set laststatus=2 " make lightline show up
 set noshowmode " turn off default mode prompt
 set timeoutlen=1000 ttimeoutlen=0 " reduce time to wait for next char
+set undofile                " Save undos after file closes
+set undodir=$HOME/.vim/undo " where to save undo histories
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
 
 " move to beginning/end of line
 nnoremap B ^
@@ -63,15 +70,6 @@ nnoremap <leader>h :HardTimeToggle<CR>
 " control-s is save
 " nmap <C-s> :w<CR>
 
-" automatically generate closing characters
-"inoremap " ""<left>
-"inoremap ' ''<left>
-"inoremap ( ()<left>
-"inoremap [ []<left>
-"inoremap { {}<left>
-"inoremap {<CR> {<CR>}<ESC>O
-"inoremap {;<CR> {<CR>};<ESC>
-
 " nerdtree bindings
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <C-n> :NERDTreeFocus<CR>
@@ -80,7 +78,7 @@ nnoremap <C-n> :NERDTreeFocus<CR>
 nnoremap <C-j> :bprev<CR>
 nnoremap <C-k> :bnext<CR>
 nnoremap <C-b> :buffers<CR>
-map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+map <C-q> :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " Backup files
 set backup
@@ -88,6 +86,17 @@ set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
+
+" Search for visual selection wiht '//'
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+
+" Git blame
+nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+
+map<leader>h :wincmd h<CR>
+map<leader>j :wincmd j<CR>
+map<leader>k :wincmd k<CR>
+map<leader>l :wincmd l<CR>
 
 " strips trailing whitespace at the end of files. this
 " is called on buffer write in the autogroup above.
@@ -111,6 +120,7 @@ if executable('ag')
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching = 0
 endif
 
 " Default to hard mode
