@@ -82,7 +82,7 @@ alias repos="cd ~/repositories"
 alias projects="cd ~/Documents/Projects"
 alias gph="git add . && git commit && git push origin HEAD"
 alias brave="open -a 'Brave Browser'"
-alias copyrc="cp ~/.vimrc vimrc && cp ~/.zshrc zshrc"
+alias syncconf="cd ~/Documents/projects/config && cp ~/.vimrc .vimrc && cp ~/.zshrc .zshrc && cd -"
 
 # Vim aliases
 alias vimrc="vim ~/.vimrc"
