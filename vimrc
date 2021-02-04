@@ -20,6 +20,7 @@ Plugin 'ap/vim-buftabline'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'maralla/completor.vim'
 Plugin 'zivyangll/git-blame.vim'
+Plugin 'morhetz/gruvbox'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -27,10 +28,10 @@ filetype plugin indent on    " required
 
 syntax on
 let mapleader = " "
-set tabstop=4 " number of visual spaces per TAB
-set softtabstop=4 " number of spaces in tab when editing
 set shiftwidth=4 " >> is four spaces
+set tabstop=4 " number of visual spaces per TAB
 set expandtab " tabs are spaces
+set softtabstop=4 " number of spaces in tab when editing
 set number " show line numbers
 set showcmd " show command in bottom bar
 set cursorline " highlight current line
@@ -65,7 +66,6 @@ nnoremap <Right> <nop>
 
 " jk is escape
 imap jk <esc>
-nnoremap <leader>h :HardTimeToggle<CR>
 
 " control-s is save
 " nmap <C-s> :w<CR>
@@ -80,6 +80,10 @@ nnoremap <C-k> :bnext<CR>
 nnoremap <C-b> :buffers<CR>
 map <C-q> :bp<bar>sp<bar>bn<bar>bd<CR>
 
+" shift-j and shift-k moves highlighted section up/down
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '>-2<CR>gv=gv
+
 " Backup files
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -87,7 +91,7 @@ set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
 
-" Search for visual selection wiht '//'
+" Search for visual selection with '//'
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 " Git blame
@@ -122,9 +126,6 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching = 0
 endif
-
-" Default to hard mode
-" let g:hardtime_default_on = 1
 
 " Autosave settings
 let g:auto_save = 1
