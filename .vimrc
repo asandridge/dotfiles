@@ -78,7 +78,7 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <C-j> :bprev<CR>
 nnoremap <C-k> :bnext<CR>
 nnoremap <C-b> :buffers<CR>
-map <C-q> :bp<bar>sp<bar>bn<bar>bd<CR>
+map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " shift-j and shift-k moves highlighted section up/down
 vnoremap J :m '>+1<CR>gv=gv
