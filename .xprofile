@@ -2,7 +2,7 @@ export PATH=$PATH:$HOME/bin/
 export EDITOR=/usr/bin/vim
 
 xmodmap ~/.xmodmap
-sxhkd &
+sxhkd -c ~/dotfiles/.sxhkdrc &
 
 xrandr --output eDP-1 --mode 1680x1050
 xwallpaper --zoom ~/.config/wallpaper.jpeg

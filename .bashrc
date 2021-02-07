@@ -19,9 +19,9 @@ alias gl="git log"
 alias master="git fetch --all && git checkout origin/master"
 alias glast="git checkout -"
 alias gclean="git clean -df"
+alias gcp="git add . && git commit && git push origin HEAD"
 
 # Other useful aliases
 alias c='clear'
 alias projects="cd ~/Documents/Projects"
-alias gp="git add . && git commit && git push origin HEAD"
 alias brave="open -a 'Brave Browser'"

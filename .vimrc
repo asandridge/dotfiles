@@ -23,6 +23,7 @@ Plugin 'morhetz/gruvbox'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" Pretty hard to beat gruvbox (dark)
 colorscheme gruvbox
 set bg=dark
 
@@ -89,6 +90,7 @@ vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 " Git blame
 nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
 
+" Jump between windows easily
 map<leader>h :wincmd h<CR>
 map<leader>j :wincmd j<CR>
 map<leader>k :wincmd k<CR>
