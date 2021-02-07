@@ -1,9 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" You better be using iTerm2
-colorscheme gruvbox
-
 " Vundle stuff yo
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -25,6 +22,9 @@ Plugin 'morhetz/gruvbox'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+colorscheme gruvbox
+set bg=dark
 
 syntax on
 let mapleader = " "
@@ -50,13 +50,19 @@ set undodir=$HOME/.vim/undo " where to save undo histories
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 
+" Backup files
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set writebackup
+
+" jk is escape
+imap jk <esc>
+
 " move to beginning/end of line
 nnoremap B ^
 nnoremap E $
-
-" $/^ doesn't do anything
-"nnoremap $ <nop>
-"nnoremap ^ <nop>
 
 " Arrow keys do nothing
 nnoremap <Up> <nop>
@@ -64,15 +70,8 @@ nnoremap <Down> <nop>
 nnoremap <Left> <nop>
 nnoremap <Right> <nop>
 
-" jk is escape
-imap jk <esc>
-
-" control-s is save
-" nmap <C-s> :w<CR>
-
 " nerdtree bindings
 nnoremap <leader>n :NERDTreeToggle<CR>
-nnoremap <C-n> :NERDTreeFocus<CR>
 
 " buffer bindings
 nnoremap <C-j> :bprev<CR>
@@ -84,13 +83,6 @@ map <C-q> :bp<bar>sp<bar>bn<bar>bd<CR>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '>-2<CR>gv=gv
 
-" Backup files
-set backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set backupskip=/tmp/*,/private/tmp/*
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set writebackup
-
 " Search for visual selection with '//'
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
@@ -101,6 +93,9 @@ map<leader>h :wincmd h<CR>
 map<leader>j :wincmd j<CR>
 map<leader>k :wincmd k<CR>
 map<leader>l :wincmd l<CR>
+
+" Sw to save as sudo (so can use vimrc to edit root files)
+command! -nargs=0 Sw w !sudo tee % > /dev/null
 
 " strips trailing whitespace at the end of files. this
 " is called on buffer write in the autogroup above.

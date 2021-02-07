@@ -1,0 +1,11 @@
+export PATH=$PATH:$HOME/bin/
+export EDITOR=/usr/bin/vim
+
+xmodmap ~/.xmodmap
+sxhkd &
+
+xrandr --output eDP-1 --mode 1680x1050
+xwallpaper --zoom ~/.config/wallpaper.jpeg
+
+sudo brightness 200
+temp 3500
