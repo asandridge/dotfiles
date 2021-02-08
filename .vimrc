@@ -28,7 +28,7 @@ colorscheme gruvbox
 set bg=dark
 
 syntax on
-let mapleader = " "
+let mapleader = " " " space is the best leader!
 set shiftwidth=4 " >> is four spaces
 set tabstop=4 " number of visual spaces per TAB
 set expandtab " tabs are spaces
@@ -40,11 +40,11 @@ set wildmenu " visual autocomplete for command menu
 set showmatch " highlight matching [{()}]
 set incsearch " search as characters are entered
 set hlsearch " highlight matches" move vertically by visual line
-set gdefault " subsitute all instances by default
+set gdefault " substitute all instances by default
 set relativenumber " show the relative line number
 set ic " ignore case when searching
 set laststatus=2 " make lightline show up
-set noshowmode " turn off default mode prompt
+set noshowmode " turn off default mode prompt (since we have lightline)
 set timeoutlen=1000 ttimeoutlen=0 " reduce time to wait for next char
 set undofile                " Save undos after file closes
 set undodir=$HOME/.vim/undo " where to save undo histories
@@ -62,23 +62,17 @@ set writebackup
 imap jk <esc>
 
 " move to beginning/end of line
-nnoremap B ^
-nnoremap E $
+noremap B ^
+noremap E $
 
-" Arrow keys do nothing
-nnoremap <Up> <nop>
-nnoremap <Down> <nop>
-nnoremap <Left> <nop>
-nnoremap <Right> <nop>
-
-" nerdtree bindings
+" Open up nerdtree
 nnoremap <leader>n :NERDTreeToggle<CR>
 
 " buffer bindings
 nnoremap <C-j> :bprev<CR>
 nnoremap <C-k> :bnext<CR>
 nnoremap <C-b> :buffers<CR>
-map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " shift-j and shift-k moves highlighted section up/down
 vnoremap J :m '>+1<CR>gv=gv
@@ -87,17 +81,34 @@ vnoremap K :m '>-2<CR>gv=gv
 " Search for visual selection with '//'
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
+" Enter will unhighlight search results
+nnoremap <CR> :noh<CR>
+
 " Git blame
 nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
 
+" Search working directory
+nnoremap <Leader>p :Ag<SPACE>
+
 " Jump between windows easily
-map<leader>h :wincmd h<CR>
-map<leader>j :wincmd j<CR>
-map<leader>k :wincmd k<CR>
-map<leader>l :wincmd l<CR>
+nnoremap<leader>h :wincmd h<CR>
+nnoremap<leader>j :wincmd j<CR>
+nnoremap<leader>k :wincmd k<CR>
+nnoremap<leader>l :wincmd l<CR>
+
+" Semicolon is easier to type even though colon is more used
+nnoremap ; :
 
 " Sw to save as sudo (so can use vimrc to edit root files)
 command! -nargs=0 Sw w !sudo tee % > /dev/null
+
+" Autosave settings
+let g:auto_save = 1
+let g:auto_save_silent = 1
+
+" Make trailing whitespace red
+:highlight ExtraWhitespace ctermbg=red guibg=red
+:match ExtraWhitespace /\s\+$/
 
 " strips trailing whitespace at the end of files. this
 " is called on buffer write in the autogroup above.
@@ -124,13 +135,9 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
-" Autosave settings
-let g:auto_save = 1
-let g:auto_save_silent = 1
-
-" Make trailing whitespace red
-:highlight ExtraWhitespace ctermbg=red guibg=red
-:match ExtraWhitespace /\s\+$/
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
 
 if filereadable(".vim.custom")
     so .vim.custom
