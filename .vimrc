@@ -50,6 +50,7 @@ set undofile                " Save undos after file closes
 set undodir=$HOME/.vim/undo " where to save undo histories
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
+set autoread " update any unchanged files automatically
 
 " Backup files
 set backup
@@ -85,7 +86,7 @@ vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 nnoremap <CR> :noh<CR>
 
 " Git blame
-nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+nnoremap <Leader>b :<C-u>call gitblame#echo()<CR>
 
 " Search working directory
 nnoremap <Leader>p :Ag<SPACE>
@@ -98,6 +99,9 @@ nnoremap<leader>l :wincmd l<CR>
 
 " Semicolon is easier to type even though colon is more used
 nnoremap ; :
+
+" Easily source vimrc in working session
+nnoremap<leader>s :source ~/.vimrc<CR>
 
 " Sw to save as sudo (so can use vimrc to edit root files)
 command! -nargs=0 Sw w !sudo tee % > /dev/null
