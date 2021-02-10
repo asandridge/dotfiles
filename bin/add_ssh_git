@@ -1,8 +1,0 @@
-git config --global user.email "27816685+asandridge@users.noreply.github.com"
-git config --global user.name "Alex Sandridge"
-ssh-keygen -t ed25519 -C "27816685+asandridge@users.noreply.github.com"
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_ed25519
-sudo apt-get install xclip
-xclip -selection clipboard < ~/.ssh/id_ed25519.pub
-echo "The key was copied to the clipboard, go ahead and add it to your Github account."
