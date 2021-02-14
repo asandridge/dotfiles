@@ -1,5 +1,3 @@
-PS1="\u \w -> "
-
 # Bash aliases
 alias sourcerc='echo "Sourcing bash profile..." && source ~/.bashrc'
 alias rc='vim ~/.bashrc && sourcerc'
