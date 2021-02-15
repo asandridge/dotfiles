@@ -13,7 +13,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'preservim/nerdtree'
 Plugin 'preservim/nerdcommenter'
-Plugin 'ctrlp.vim.git'
+Plugin 'ctrlpvim/ctrlp.vim.git'
 Plugin 'rking/ag.vim.git'
 Plugin 'tpope/vim-surround'
 Plugin 'itchyny/lightline.vim'
