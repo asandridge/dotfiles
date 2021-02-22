@@ -108,8 +108,8 @@ noremap E $
 nnoremap <leader>n :NERDTreeToggle<CR>
 
 " Buffer bindings
-nnoremap <C-j> :bprev<CR>
-nnoremap <C-k> :bnext<CR>
+nnoremap <C-h> :bprev<CR>
+nnoremap <C-l> :bnext<CR>
 nnoremap <C-b> :buffers<CR>
 nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd!<CR>
 
@@ -130,10 +130,10 @@ nnoremap <leader>b :<C-u>call gitblame#echo()<CR>
 nnoremap <leader>p :Ag<SPACE>
 
 " Jump between windows easily
-nnoremap<leader>h :wincmd h<CR>
-nnoremap<leader>j :wincmd j<CR>
-nnoremap<leader>k :wincmd k<CR>
-nnoremap<leader>l :wincmd l<CR>
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
 
 " Semicolon is easier to type even though colon is more useful
 nnoremap ; :
@@ -143,6 +143,10 @@ nnoremap<leader>s :source ~/.vimrc<CR>
 
 " Sw to save as sudo (so can use vimrc to edit root files)
 command! -nargs=0 Sw w !sudo tee % > /dev/null
+
+" Faster movement
+nnoremap <C-j> 10j
+nnoremap <C-k> 10k
 
 " ===============================================
 " FUNCTIONS AND OTHER CONFIGURATIONS
@@ -178,6 +182,23 @@ endif
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
 
-if filereadable(".vim.custom")
-    so .vim.custom
-endif
+" CTRL-U and CTRL-D scroll instead of jump
+function SmoothScroll(up)
+    if a:up
+        let scrollaction=""
+    else
+        let scrollaction=""
+    endif
+    exec "normal " . scrollaction
+    redraw
+    let counter=1
+    while counter<&scroll
+        let counter+=1
+        sleep 3m
+        redraw
+        exec "normal " . scrollaction
+    endwhile
+endfunction
+
+nnoremap <C-U> :call SmoothScroll(1)<Enter>
+nnoremap <C-D> :call SmoothScroll(0)<Enter>
