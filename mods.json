@@ -1,0 +1,375 @@
+{
+    "title": "Home Row Mods",
+	"maintainers": [
+	    "asandridge"
+    ],
+	"rules": [
+		{
+			"description": "Home Row Mods",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "spacebar",
+						"modifiers": {
+							"optional": [
+								"any"
+							]
+						}
+					},
+					"to_if_alone": [
+						{
+							"key_code": "spacebar",
+							"lazy": true
+						}
+					],
+					"to_if_held_down": [
+						{
+							"key_code": "fn"
+						}
+					],
+					"parameters": {
+						"basic.to_if_alone_timeout_milliseconds": 300,
+						"basic.to_if_held_down_threshold_milliseconds": 0
+					}
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "j",
+                        "modifiers": {
+                            "mandatory": [
+                                "fn"
+                            ]
+                        }
+					},
+					"to_if_alone": [
+						{
+							"key_code": "return_or_enter",
+							"lazy": true
+						}
+					],
+					"to_if_held_down": [
+						{
+						    "key_code": "right_shift"
+						}
+					],
+					"parameters": {
+						"basic.to_if_alone_timeout_milliseconds": 300,
+						"basic.to_if_held_down_threshold_milliseconds": 0
+					}
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "f",
+						"modifiers": {
+							"mandatory": [
+								"fn"
+							]
+						}
+					},
+					"to_if_alone": [
+						{
+							"key_code": "tab",
+							"lazy": true
+						}
+					],
+					"to_if_held_down": [
+						{
+							"key_code": "right_shift"
+						}
+					],
+					"parameters": {
+						"basic.to_if_alone_timeout_milliseconds": 300,
+						"basic.to_if_held_down_threshold_milliseconds": 0
+					}
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "k",
+						"modifiers": {
+							"mandatory": [
+								"fn"
+							]
+						}
+					},
+					"to_if_alone": [
+						{
+							"key_code": "delete_or_backspace",
+							"lazy": true
+						}
+					],
+					"to_if_held_down": [
+						{
+							"key_code": "right_control"
+						}
+					],
+					"parameters": {
+						"basic.to_if_alone_timeout_milliseconds": 300,
+						"basic.to_if_held_down_threshold_milliseconds": 0
+					}
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "d",
+						"modifiers": {
+							"mandatory": [
+								"fn"
+							]
+						}
+					},
+					"to_if_alone": [
+						{
+							"key_code": "escape",
+							"lazy": true
+						}
+					],
+					"to_if_held_down": [
+						{
+							"key_code": "left_control"
+						}
+					],
+					"parameters": {
+						"basic.to_if_alone_timeout_milliseconds": 300,
+						"basic.to_if_held_down_threshold_milliseconds": 0
+					}
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "l",
+						"modifiers": {
+							"mandatory": [
+								"fn"
+							]
+						}
+					},
+					"to_if_alone": [
+						{
+							"key_code": "l",
+							"lazy": true
+						}
+					],
+					"to_if_held_down": [
+						{
+							"key_code": "right_command"
+						}
+					],
+					"parameters": {
+						"basic.to_if_alone_timeout_milliseconds": 300,
+						"basic.to_if_held_down_threshold_milliseconds": 0
+					}
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "s",
+						"modifiers": {
+							"mandatory": [
+								"fn"
+							]
+						}
+					},
+					"to_if_alone": [
+						{
+							"key_code": "s",
+							"lazy": true
+						}
+					],
+					"to_if_held_down": [
+						{
+							"key_code": "left_command"
+						}
+					],
+					"parameters": {
+						"basic.to_if_alone_timeout_milliseconds": 300,
+						"basic.to_if_held_down_threshold_milliseconds": 0
+					}
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "semicolon",
+						"modifiers": {
+							"mandatory": [
+								"fn"
+							]
+						}
+					},
+					"to_if_alone": [
+						{
+							"key_code": "semicolon",
+							"lazy": true
+						}
+					],
+					"to_if_held_down": [
+						{
+							"key_code": "right_option"
+						}
+					],
+					"parameters": {
+						"basic.to_if_alone_timeout_milliseconds": 300,
+						"basic.to_if_held_down_threshold_milliseconds": 0
+					}
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "a",
+						"modifiers": {
+							"mandatory": [
+								"fn"
+							]
+						}
+					},
+					"to_if_alone": [
+						{
+							"key_code": "a",
+							"lazy": true
+						}
+					],
+					"to_if_held_down": [
+						{
+							"key_code": "left_option"
+						}
+					],
+					"parameters": {
+						"basic.to_if_alone_timeout_milliseconds": 300,
+						"basic.to_if_held_down_threshold_milliseconds": 0
+					}
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "left_command",
+						"modifiers": {
+							"optional": [
+								"any"
+							]
+						}
+					},
+					"to_if_alone": [
+						{
+							"key_code": "escape",
+							"lazy": true
+						}
+					],
+					"to_if_held_down": [
+						{
+							"key_code": "left_command"
+						}
+					],
+					"parameters": {
+						"basic.to_if_alone_timeout_milliseconds": 300,
+						"basic.to_if_held_down_threshold_milliseconds": 0
+					}
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "right_command",
+						"modifiers": {
+							"optional": [
+								"any"
+							]
+						}
+					},
+					"to_if_alone": [
+						{
+							"key_code": "tab",
+							"lazy": true
+						}
+					],
+					"to_if_held_down": [
+						{
+							"key_code": "right_command"
+						}
+					],
+					"parameters": {
+						"basic.to_if_alone_timeout_milliseconds": 300,
+						"basic.to_if_held_down_threshold_milliseconds": 0
+					}
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "m",
+						"modifiers": {
+                            "mandatory": [
+                                "fn"
+                            ],
+							"optional": [
+								"any"
+							]
+						}
+					},
+					"to": [
+						{
+							"key_code": "down_arrow"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "comma",
+						"modifiers": {
+                            "mandatory": [
+                                "fn"
+                            ],
+							"optional": [
+								"any"
+							]
+						}
+					},
+					"to": [
+						{
+							"key_code": "up_arrow"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "period",
+						"modifiers": {
+                            "mandatory": [
+                                "fn"
+                            ],
+							"optional": [
+								"any"
+							]
+						}
+					},
+					"to": [
+						{
+							"key_code": "right_arrow"
+						}
+					]
+				},
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "n",
+						"modifiers": {
+                            "mandatory": [
+                                "fn"
+                            ],
+							"optional": [
+								"any"
+							]
+						}
+					},
+					"to": [
+						{
+							"key_code": "left_arrow"
+						}
+					]
+				}
+			]
+		}
+	]
+}
