@@ -23,6 +23,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'maralla/completor.vim'
 Plugin 'zivyangll/git-blame.vim'
 Plugin 'morhetz/gruvbox'
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 filetype plugin indent on
@@ -35,7 +36,7 @@ set bg=dark
 let mapleader = " "
 
 " ===============================================
-" Global variables
+" Global settings
 " ===============================================
 
 " Tabs
@@ -97,8 +98,18 @@ let g:NERDSpaceDelims = 1
 " Remappings
 " ===============================================
 
+" Remap home index
+" noremap n j
+" noremap j n
+
 " jk is escape
 imap jk <esc>
+nmap <BS> <leader>
+
+" Why do we need to hold shift for this?
+nmap zz ZZ
+nmap zq ZQ
+nmap <leader>e ZZ
 
 " Move to beginning/end of line in normal and visual
 noremap B ^
@@ -111,11 +122,7 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <C-h> :bprev<CR>
 nnoremap <C-l> :bnext<CR>
 nnoremap <C-b> :buffers<CR>
-nnoremap <leader>q :bp<bar>sp<bar>bn<bar>bd!<CR>
-
-" shift-j and shift-k moves highlighted section up/down
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '>-2<CR>gv=gv
+nnoremap <leader>w :bp<bar>sp<bar>bn<bar>bd!<CR>
 
 " Search for visual selection with '//'
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
@@ -132,6 +139,7 @@ nnoremap <leader>p :Ag<SPACE>
 " Jump between windows easily
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
+" nnoremap <leader>n :wincmd n<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 
@@ -139,14 +147,33 @@ nnoremap <leader>l :wincmd l<CR>
 nnoremap ; :
 
 " Easily source vimrc in working session
-nnoremap<leader>s :source ~/.vimrc<CR>
+nnoremap<leader>v :source ~/.vimrc<CR>
 
 " Sw to save as sudo (so can use vimrc to edit root files)
 command! -nargs=0 Sw w !sudo tee % > /dev/null
 
 " Faster movement
 nnoremap <C-j> 10j
+vnoremap <C-j> 10j
 nnoremap <C-k> 10k
+vnoremap <C-k> 10k
+
+" Sync syntax highlighting
+nnoremap <leader>s :syntax sync fromstart<CR>
+
+" Output file path for current buffer
+nnoremap <leader>f :echo expand("%")<CR>
+
+" Fugitive shortcuts
+nnoremap <leader>gs :G<CR>
+nnoremap <leader>gd :Git diff<CR>
+nnoremap <leader>gl :Git log<CR>
+nnoremap <leader>gf :diffget //2<CR>
+nnoremap <leader>gj :diffget //3<CR>
+
+" Make yanking to the clipboard easier
+vnoremap <leader>y "*y
+nnoremap <leader>y "*yiw
 
 " ===============================================
 " FUNCTIONS AND OTHER CONFIGURATIONS
