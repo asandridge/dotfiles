@@ -23,7 +23,7 @@ bindkey '^R' history-incremental-search-backward
 
 KEYTIMEOUT=1
 
-source ~/dotfiles/.bash_aliases
+source ~/dotfiles/.aliases
 
 # ZSH aliases
 alias srczrc="echo 'Sourcing zshrc...' && source ~/dotfiles/.zshrc"
