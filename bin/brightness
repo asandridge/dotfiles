@@ -1,9 +1,0 @@
-#!/bin/bash
-# set screen brightness level
-
-if [ "$#" = "0"  ]; then
-    level= cat /sys/class/backlight/intel_backlight/brightness
-    echo -n $level
-else
-    echo $1 > /sys/class/backlight/intel_backlight/brightness
-fi

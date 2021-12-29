@@ -1,8 +1,0 @@
-#!/bin/bash
-# set screen temperature
-
-if [ "$#" = "0" ]; then
-    echo "Please enter a value between 1000 and 25000."
-else
-    redshift -P -O $1
-fi
