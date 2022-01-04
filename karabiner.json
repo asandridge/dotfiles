@@ -8,7 +8,7 @@
         {
             "complex_modifications": {
                 "parameters": {
-                    "basic.simultaneous_threshold_milliseconds": 50,
+                    "basic.simultaneous_threshold_milliseconds": 100,
                     "basic.to_delayed_action_delay_milliseconds": 500,
                     "basic.to_if_alone_timeout_milliseconds": 1000,
                     "basic.to_if_held_down_threshold_milliseconds": 500,
@@ -83,9 +83,8 @@
                                     {
                                         "key_code": "j",
                                         "modifiers": [
-                                            "left_shift",
                                             "left_option",
-                                            "left_control"
+                                            "left_shift"
                                         ]
                                     }
                                 ],
@@ -107,9 +106,8 @@
                                     {
                                         "key_code": "k",
                                         "modifiers": [
-                                            "left_shift",
                                             "left_option",
-                                            "left_control"
+                                            "left_shift"
                                         ]
                                     }
                                 ],
@@ -186,7 +184,7 @@
                                 },
                                 "to_if_alone": [
                                     {
-                                        "key_code": "v",
+                                        "key_code": "spacebar",
                                         "modifiers": [
                                             "left_command"
                                         ]
@@ -200,58 +198,28 @@
                                 "type": "basic"
                             },
                             {
+                                "type": "basic",
                                 "from": {
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    },
-                                    "key_code": "left_option"
+                                    "simultaneous": [
+                                        {
+                                            "pointing_button": "button1"
+                                        },
+                                        {
+                                            "pointing_button": "button2"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_up_when": "any"
+                                    }
                                 },
-                                "parameters": {
-                                    "basic.to_if_held_down_threshold_milliseconds": 50
-                                },
-                                "to_if_alone": [
+                                "to": [
                                     {
-                                        "key_code": "c",
+                                        "key_code": "w",
                                         "modifiers": [
                                             "left_command"
                                         ]
                                     }
-                                ],
-                                "to_if_held_down": [
-                                    {
-                                        "key_code": "left_option"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    },
-                                    "key_code": "left_control"
-                                },
-                                "parameters": {
-                                    "basic.to_if_held_down_threshold_milliseconds": 50
-                                },
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "z",
-                                        "modifiers": [
-                                            "left_command"
-                                        ]
-                                    }
-                                ],
-                                "to_if_held_down": [
-                                    {
-                                        "key_code": "left_control"
-                                    }
-                                ],
-                                "type": "basic"
+                                ]
                             }
                         ]
                     }

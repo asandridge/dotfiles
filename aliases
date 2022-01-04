@@ -2,7 +2,7 @@
 alias srcaliases='echo "Sourcing aliases..." && source ~/dotfiles/aliases'
 alias aliases='vim ~/dotfiles/aliases && srcaliases'
 symlinkdotfiles="ln -s ~/dotfiles/.vimrc ~/.vimrc || true && ln -s ~/dotfiles/.zshrc ~/.zshrc || true && cp ~/dotfiles/karabiner.json .config/karabiner/"
-alias mods='vim ~/dotfiles/karabiner.json && cp ~/dotfiles/karabiner.json .config/karabiner/'
+alias mods='vim ~/dotfiles/karabiner.json && cp ~/dotfiles/karabiner.json ~/.config/karabiner/'
 
 # Vim aliases
 alias vimrc="vim ~/.vimrc"
@@ -13,6 +13,10 @@ alias viminstall="git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bund
 alias gs='git status'
 alias gl="git log"
 alias gd="git diff"
+alias ga="git add -A"
+alias gc="git checkout"
+alias gb="git branch"
+alias gcb="git checkout -b"
 alias glast="git checkout -"
 alias gclean="git clean -df"
 
@@ -23,12 +27,11 @@ alias addall="git add -A"
 alias commitall="addall && commit"
 alias pushall="addall && commit && push"
 
-alias soft='git reset HEAD^ --soft'
 alias stash='git stash'
-alias ss="soft && stash"
 alias apply='git stash apply'
+alias soft='git reset HEAD^ --soft'
 alias hard='git reset HEAD --hard'
-alias master="git fetch --all && git checkout origin/master"
+alias master="git checkout master && git pull"
 alias reset="git reset HEAD"
 
 # Other useful aliases
