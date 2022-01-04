@@ -28,7 +28,7 @@
                                     }
                                 },
                                 "parameters": {
-                                    "basic.to_if_held_down_threshold_milliseconds": 100
+                                    "basic.to_if_held_down_threshold_milliseconds": 50
                                 },
                                 "to_if_alone": [
                                     {
@@ -76,9 +76,6 @@
                                     },
                                     "pointing_button": "button5"
                                 },
-                                "parameters": {
-                                    "basic.to_if_held_down_threshold_milliseconds": 50
-                                },
                                 "to_if_alone": [
                                     {
                                         "key_code": "j",
@@ -99,9 +96,6 @@
                                     },
                                     "pointing_button": "button4"
                                 },
-                                "parameters": {
-                                    "basic.to_if_held_down_threshold_milliseconds": 50
-                                },
                                 "to_if_alone": [
                                     {
                                         "key_code": "k",
@@ -121,9 +115,6 @@
                                         ]
                                     },
                                     "pointing_button": "button3"
-                                },
-                                "parameters": {
-                                    "basic.to_if_held_down_threshold_milliseconds": 50
                                 },
                                 "to_if_alone": [
                                     {

@@ -28,3 +28,4 @@ source ~/dotfiles/aliases
 # ZSH aliases
 alias srczrc="echo 'Sourcing zshrc...' && source ~/dotfiles/.zshrc"
 alias zshrc="vim ~/dotfiles/.zshrc && srczrc"
+
