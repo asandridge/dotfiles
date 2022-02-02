@@ -15,6 +15,7 @@ alias gl="git log"
 alias gd="git diff"
 alias ga="git add -A"
 alias gc="git checkout"
+alias gf="git fetch --all"
 alias gb="git branch"
 alias gcb="git checkout -b"
 alias glast="git checkout -"
@@ -31,7 +32,7 @@ alias stash='git stash'
 alias apply='git stash apply'
 alias soft='git reset HEAD^ --soft'
 alias hard='git reset HEAD --hard'
-alias master="git checkout master && git pull"
+alias master="gf && git checkout master && git pull"
 alias reset="git reset HEAD"
 
 # Other useful aliases
