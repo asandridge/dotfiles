@@ -78,10 +78,9 @@
                                 },
                                 "to_if_alone": [
                                     {
-                                        "key_code": "j",
+                                        "key_code": "c",
                                         "modifiers": [
-                                            "left_option",
-                                            "left_shift"
+                                            "left_command"
                                         ]
                                     }
                                 ],
@@ -98,10 +97,9 @@
                                 },
                                 "to_if_alone": [
                                     {
-                                        "key_code": "k",
+                                        "key_code": "v",
                                         "modifiers": [
-                                            "left_option",
-                                            "left_shift"
+                                            "left_command"
                                         ]
                                     }
                                 ],
@@ -157,33 +155,6 @@
                                         "modifiers": [
                                             "left_command"
                                         ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    },
-                                    "key_code": "left_command"
-                                },
-                                "parameters": {
-                                    "basic.to_if_held_down_threshold_milliseconds": 50
-                                },
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "spacebar",
-                                        "modifiers": [
-                                            "left_command"
-                                        ]
-                                    }
-                                ],
-                                "to_if_held_down": [
-                                    {
-                                        "key_code": "left_command"
                                     }
                                 ],
                                 "type": "basic"
