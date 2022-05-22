@@ -20,6 +20,7 @@ alias gb="git branch"
 alias gr="git reset HEAD"
 alias gf="git fetch --all"
 alias gcb="git checkout -b"
+alias gmc="git merge --continue"
 alias glast="git checkout -"
 alias gclean="git clean -df"
 
@@ -35,13 +36,13 @@ alias apply='git stash apply'
 alias soft='git reset HEAD^ --soft'
 alias ss='soft && stash'
 alias hard='git reset HEAD --hard'
-alias master="git checkout master && git pull origin master && git reset origin/master --hard"
+alias master="git checkout master && git fetch && git pull origin master"
 
 # Other useful aliases
 alias repos="cd /Users/asandridge/repositories"
 alias c='clear'
 alias e="exit"
-alias python="python3"
+#alias python="python3"
 alias ll="ls -la"
 alias sshc="vim ~/.ssh/config"
 alias lint="npm run lint:fix"
