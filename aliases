@@ -2,7 +2,7 @@
 alias srcaliases='echo "Sourcing aliases..." && source ~/dotfiles/aliases'
 alias aliases='vim ~/dotfiles/aliases && srcaliases && cp ~/dotfiles/aliases ~/.oh-my-zsh/custom/aliases.zsh'
 symlinkdotfiles="ln -s ~/dotfiles/.vimrc ~/.vimrc || true && ln -s ~/dotfiles/.zshrc ~/.zshrc || true && cp ~/dotfiles/karabiner.json .config/karabiner/"
-alias mods='vim ~/dotfiles/karabiner.json && cp ~/dotfiles/karabiner.json ~/.config/karabiner/'
+alias mods='vim ~/dotfiles/karabiner.json && echo "Copying karabiner.json from ~/dotfiles..." && cp ~/dotfiles/karabiner.json ~/.config/karabiner/'
 
 # Vim aliases
 alias vimrc="vim ~/.vimrc"
@@ -14,7 +14,6 @@ alias gs='git status'
 alias gl="git log"
 alias gd="git diff"
 alias ga="git add"
-alias gc="git checkout"
 alias gf="git fetch --all"
 alias gb="git branch"
 alias gr="git reset HEAD"
@@ -46,3 +45,4 @@ alias e="exit"
 alias ll="ls -la"
 alias sshc="vim ~/.ssh/config"
 alias lint="npm run lint:fix"
+alias podi="cd ios && pod install && cd .."
