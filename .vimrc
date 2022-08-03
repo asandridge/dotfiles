@@ -78,6 +78,7 @@ set gdefault " Substitute all instances by default
 set showmatch " Highlight matching [{()}]
 set timeoutlen=1000 ttimeoutlen=0 " Reduce time to wait for next char
 set scrolloff=10 " Keep 10 lines between cursor and end of window
+set backspace=indent,eol,start  " more powerful backspacing
 
 " ===============================================
 " Plugin specific settings
