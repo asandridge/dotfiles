@@ -5,6 +5,7 @@ symlinkdotfiles="ln -s ~/dotfiles/.vimrc ~/.vimrc || true && ln -s ~/dotfiles/.z
 
 alias mods='vim ~/dotfiles/karabiner.json && applyMods'
 alias applyMods='cp ~/dotfiles/karabiner.json ~/.config/karabiner/ && echo "Karabiner config applied"'
+alias applyModsBack='cp ~/.config/karabiner/karabiner.json ~/dotfiles/ && echo "Karabiner config applied back"'
 alias windowsKeyboard='cd ~/dotfiles && gco windows-keyboard && applyMods'
 alias macKeyboard='cd ~/dotfiles && gcm && applyMods'
 
